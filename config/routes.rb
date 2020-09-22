@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'insects#index'
   resources :insects do
     resources :comments, only: [:create, :destroy]
   end
