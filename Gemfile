@@ -43,6 +43,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'carrierwave'
 gem 'cloudinary'
 gem 'dotenv-rails'
+gem 'rack-cors'
 
 group :production do
   gem 'pg'
