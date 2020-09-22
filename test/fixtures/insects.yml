@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  desription: MyText
+  latitude: 1.5
+  longitude: 1.5
+  category_id: 1
+  date: 2020-09-22
+  prfc: MyString
+  hour: MyString
+  image: MyString
+
+two:
+  name: MyString
+  desription: MyText
+  latitude: 1.5
+  longitude: 1.5
+  category_id: 1
+  date: 2020-09-22
+  prfc: MyString
+  hour: MyString
+  image: MyString
