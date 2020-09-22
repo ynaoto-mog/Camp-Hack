@@ -53,6 +53,6 @@ class InsectsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def insect_params
-      params.require(:insect).permit(:name, :desription, :latitude, :longitude, :category_id, :date, :prfc, :hour, image: [:url])
+      params.permit(:name, :desription, :latitude, :longitude, :category_id, :date, :prfc, :hour, :image)
     end
 end
