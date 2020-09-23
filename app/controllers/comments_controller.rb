@@ -1,8 +1,7 @@
 class CommentsController < ApplicationController
-    before_action :set_comment, only: [:destroy] 
-    before_action :set_insect, only: [:index]
+    before_action :set_comment, only: [:destroy]
     def index
-        comments = @insect.comment
+        comments = Comment.where(insect_id: params[:insect_id])
         render json: comments
     end
 
@@ -24,10 +23,6 @@ class CommentsController < ApplicationController
     end
     
     private
-    def set_insect
-        @insect = Insect.find(params[:insect_id])
-    end
-
     def set_comment
         @comment = Comment.find(params[:id])
     end

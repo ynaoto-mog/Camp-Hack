@@ -1,8 +1,7 @@
 class LikesController < ApplicationController
-    before_action :set_insect, only: [:index]
 
     def index
-        likes = @insect.likes.count
+        likes = Like.where(insect_id: params[:insect_id])
         render json: likes
     end
 
@@ -11,9 +10,5 @@ class LikesController < ApplicationController
         Like.create(insect_id: params[:insect_id])
     end
 
-    private
-    def set_insect
-        @insect = Insect.find(params[:insect_id])
-    end
 
 end
