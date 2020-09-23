@@ -7,8 +7,8 @@ class InsectChannel < ApplicationCable::Channel
     # Any cleanup needed when channel is unsubscribed
   end
 
-  def insect(data)
-    ActionCable.server.broadcast 'insect_channel', insect: data['image','name','discription','lat','lng','prfc']
-  end
+  # def insect(data)
+  #   ActionCable.server.broadcast 'insect_channel', insect: data['image','name','discription','lat','lng','prfc']
+  # end
 
 end
