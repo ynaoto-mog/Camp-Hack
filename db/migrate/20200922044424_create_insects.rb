@@ -9,7 +9,7 @@ class CreateInsects < ActiveRecord::Migration[6.0]
       t.date :date
       t.string :prfc
       t.string :hour
-      t.string :image
+      t.text :image
 
       t.timestamps
     end

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root 'insects#index'
+  post "users/sign_up" => "users#sign_up"
+  post "users/sign_in" => "users#sign_in"
   resources :insects do
     resources :likes, only: [:index, :create]
     resources :comments, only: [:index, :create, :destroy]
