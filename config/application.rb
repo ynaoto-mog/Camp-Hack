@@ -22,16 +22,6 @@ config.time_zone = 'Tokyo'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-Rails.application.config.middleware.insert_before 0, Rack::Cors do
-  # CORS settings
-  allow do
-    origins "https://camp-hackathon.netlify.app/",
-    resource "*"
-      headers: :any,
-      methods: [:get, :post, :options, :head]
-  end
-end
-
 module CampHack
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
