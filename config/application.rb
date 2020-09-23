@@ -19,6 +19,8 @@ require "rails/test_unit/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+ActionCable.server.config.disable_request_forgery_protection = true
+
 module CampHack
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
@@ -26,7 +28,7 @@ module CampHack
 
     #set time-zone for Tokyo
     config.time_zone = 'Tokyo'
-
+    config.action_cable.url = 'wss://campinsects.herokuapp.com/cable'
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
