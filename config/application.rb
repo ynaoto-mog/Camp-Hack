@@ -22,6 +22,16 @@ config.time_zone = 'Tokyo'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+Rails.application.config.middleware.insert_before 0, Rack::Cors do
+  # CORS settings
+  allow do
+    origins "https://camp-hackathon.netlify.app/",
+    resource "*"
+      headers: :any,
+      methods: [:get, :post, :options, :head]
+  end
+end
+
 module CampHack
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
@@ -36,15 +46,5 @@ module CampHack
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
-
-    # CORS settings
-    config.middleware.insert_before 0, Rack::Cors do
-      allow do
-        origins "https://camp-hackathon.netlify.app/",
-        resource "*",
-          headers: :any,
-          methods: [:get, :post, :options, :head]
-      end
-    end
   end
 end
