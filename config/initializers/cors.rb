@@ -8,7 +8,7 @@
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
      # CORS settings
     allow do
-        origins "https://camp-hackathon.netlify.app/",
+        origins "*",
         resource "*"
             headers: :any,
             methods: [:get, :post, :put, :patch, :delete, :options, :head]

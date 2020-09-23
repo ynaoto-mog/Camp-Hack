@@ -21,7 +21,10 @@ class InsectsController < ApplicationController
   # POST /insects
   def create
     @insect = Insect.new(insect_params)
+    now_time = Time.zone.now
     
+    if now_time.hour 
+
     if @insect.save
       render json: @insect, status: :created, location: @insect
     else
