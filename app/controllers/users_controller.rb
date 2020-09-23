@@ -11,10 +11,10 @@ class UsersController < ApplicationController
 
     private
     def user_params
-        params.permit(:nick_name, :login_id, :password)
+        params.permit(:nickname, :username, :password)
     end
 
     def set_users
-        @user = User.find_by(login_id: params[:id], password: params[:password])
+        @user = User.find_by(username: params[:id], password: params[:password])
     end
 end
