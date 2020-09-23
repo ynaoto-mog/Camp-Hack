@@ -5,9 +5,9 @@ class UsersController < ApplicationController
         render json: user
     end
 
-    def sign_in
-        render json: @user
-    end
+    #def sign_in
+        #render json: @user
+    #end
 
     private
     def user_params
