@@ -14,7 +14,7 @@ class CommentsController < ApplicationController
         if @comment.save
             render json: @comment, status: :created
         else
-            render json: @insect.errors, status: :unprocessable_entit
+            render json: @comment.errors, status: :unprocessable_entit
         end
     end
 

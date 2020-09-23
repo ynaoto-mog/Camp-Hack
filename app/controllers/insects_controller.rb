@@ -5,8 +5,8 @@ class InsectsController < ApplicationController
   # GET /insects
   def index
     @insects = Insect.all
-    @insects = @insects.where('name LIKE ?',"%#{params[:name]}%")
-    @insects = @insects.where('pass LIKE ?',"%#{params[:name]}%")
+    #@insects = @insects.where('name LIKE ?',"%#{params[:name]}%")
+    #@insects = @insects.where('pass LIKE ?',"%#{params[:name]}%")
     render json: @insects
   end
 
