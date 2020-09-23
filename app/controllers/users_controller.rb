@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    before_action :set_users, only: [sign_in]
+    before_action :set_users, only: [:sign_in]
     def sign_up
         user = User.new(user_params)
         render json: user
