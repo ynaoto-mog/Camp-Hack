@@ -1,5 +1,5 @@
 class LikesController < ApplicationController
-    before_action :set_insect, only[:index]
+    before_action :set_insect, only: [:index]
 
     def index
         #likes = @insect.likes.count
