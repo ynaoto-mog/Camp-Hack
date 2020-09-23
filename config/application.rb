@@ -39,8 +39,8 @@ module CampHack
       allow do
         origins "https://camp-hackathon.netlify.app/",
         resource "*",
-        headers: :any,
-        methods: [:get, :post, :options, :head]
+          headers: :any,
+          methods: [:get, :post, :options, :head]
       end
     end
   end
