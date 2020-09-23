@@ -1,4 +1,4 @@
-require_relative 'concerns/hour'
+require_relative './concerns/hour'
 
 class InsectsController < ApplicationController
   before_action :set_insect, only: [:show, :update, :destroy]
