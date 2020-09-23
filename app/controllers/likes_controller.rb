@@ -3,7 +3,7 @@ class LikesController < ApplicationController
 
     def index
         likes = @insect.likes.count
-        
+        render json: likes
     end
 
     #POST   /insects/:insect_id/comments
