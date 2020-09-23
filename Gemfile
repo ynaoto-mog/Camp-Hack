@@ -47,3 +47,5 @@ gem 'dotenv-rails'
 group :production do
   gem 'pg'
 end
+
+gem 'nokogiri', '~> 1.10.10'
