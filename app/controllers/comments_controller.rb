@@ -1,5 +1,10 @@
 class CommentsController < ApplicationController
     before_action :set_comment, only: [:destroy] 
+    before_action :set_insect, only: [:index]
+    def index
+        comments = @insect.comment
+        render json: comment
+    end
 
     #　Post /insects/:insect_id/comments　コメント投稿　OK
     def create
@@ -19,6 +24,10 @@ class CommentsController < ApplicationController
     end
     
     private
+    def set_insect
+        @insect = Insect.find(params[:id])
+    end
+
     def set_comment
         @comment = Comment.find(params[:id])
     end
