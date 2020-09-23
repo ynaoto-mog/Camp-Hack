@@ -17,7 +17,7 @@ class UsersController < ApplicationController
     def set_users
         @user = User.find_by(username: params[:username], password: params[:password])
         if @user.nil?
-            render json: 'Not found user', status: :404
+            render json: 'Not found user', status: 404
         end
     end
 end
