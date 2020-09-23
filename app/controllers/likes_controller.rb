@@ -2,8 +2,8 @@ class LikesController < ApplicationController
     before_action :set_insect, only: [:index]
 
     def index
-        #likes = @insect.likes.count
-        #render json: likes
+        likes = @insect.likes.count
+        render json: likes
     end
 
     #POST   /insects/:insect_id/comments
