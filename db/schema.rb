@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_22_044512) do
+ActiveRecord::Schema.define(version: 2020_09_23_103200) do
 
   create_table "comments", force: :cascade do |t|
     t.text "body"
@@ -29,6 +29,12 @@ ActiveRecord::Schema.define(version: 2020_09_22_044512) do
     t.string "prfc"
     t.string "hour"
     t.string "image"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.integer "insect_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

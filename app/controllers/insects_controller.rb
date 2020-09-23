@@ -1,3 +1,5 @@
+require_relative 'concerns/hour'
+
 class InsectsController < ApplicationController
   before_action :set_insect, only: [:show, :update, :destroy]
 
@@ -21,18 +23,7 @@ class InsectsController < ApplicationController
   # POST /insects
   def create
     @insect = Insect.new(insect_params)
-    now_time = Time.zone.now
-    hour = now_time.hour
-    if hour >= 3 && hour > 10
-      @insect.hour ="早朝"
-    elsif hour >= 10 && hour > 17
-      @insect.hour ="午前"
-    elsif hour >= 17 && hour > 20
-      @insect.hour ="午後"
-    else
-      @insect.hour ="夜"
-    end
-
+    @insect.hour = create_hour
 
     if @insect.save
       render json: @insect, status: :created, location: @insect
