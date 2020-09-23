@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'insects#index'
   resources :insects do
-    resources :likes, only: [:create]
+    resources :likes, only: [:index, :create]
     resources :comments, only: [:create, :destroy]
   end
   mount ActionCable.server => '/cable'
