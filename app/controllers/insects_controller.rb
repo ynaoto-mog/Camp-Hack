@@ -6,6 +6,7 @@ class InsectsController < ApplicationController
   def index
     @insects = Insect.all
     @insects = @insects.where('name LIKE ?',"%#{params[:name]}%")
+    @insects = @insects.where('pass LIKE ?',"%#{params[:name]}%")
     render json: @insects
   end
 
@@ -72,6 +73,6 @@ class InsectsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def insect_params
-      params.permit(:name, :description, :latitude, :longitude, :category_id, :date, :prfc, :hour, :image)
+      params.permit(:name, :description, :latitude, :longitude, :category_id, :date, :prfc, :hour, :pass, :image)
     end
 end
