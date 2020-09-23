@@ -35,13 +35,13 @@ class InsectsController < ApplicationController
     end
 
     if @insect.save
-      params = {
-          id: @customer.id,
-          done: @customer.done,
-          created_at: @customer.created_at,
-          frankfurts: @customer.frankfurts
-      }
-      ActionCable.server.broadcast 'insect_channel', customer: params
+      #params = {
+          #id: @customer.id,
+          #done: @customer.done,
+          #created_at: @customer.created_at,
+          #frankfurts: @customer.frankfurts
+      #}
+      #ActionCable.server.broadcast 'insect_channel', customer: params
       render json: @insect, status: :created, location: @insect
     else
       render json: @insect.errors, status: :unprocessable_entit
