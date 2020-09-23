@@ -11,7 +11,7 @@ class InsectsController < ApplicationController
 
   # GET /insects/1
   def show
-    @comments = Comment.where(insects_id: params[:id])
+    @comments = Comment.where(insect_id: params[:id])
     respond_to do |format|
       format.json  { render :json => {:insect => @insect, 
                                       :comments => @comments }}
@@ -52,8 +52,8 @@ class InsectsController < ApplicationController
 
   # DELETE /insects/1
   def destroy
-    if Comment.where(insects_id: params[:id])
-      Comment.where(insects_id: params[:id]).destroy_all
+    if Comment.where(insect_id: params[:id])
+      Comment.where(insect_id: params[:id]).destroy_all
     end
     @insect.destroy
   end

@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
     #　Post /insects/:insect_id/comments　コメント投稿　OK
     def create
         @comment = Comment.create(comment_params)
-        @comment.insects_id = params[:insect_id]
+        @comment.insect_id = params[:insect_id]
         
         if @comment.save
             render json: @comment, status: :created
