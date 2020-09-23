@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 2020_09_22_044512) do
 
   create_table "insects", force: :cascade do |t|
     t.string "name"
-    t.text "desription"
+    t.text "description"
     t.float "latitude"
     t.float "longitude"
     t.integer "category_id"
