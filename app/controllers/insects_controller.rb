@@ -21,6 +21,7 @@ class InsectsController < ApplicationController
   # POST /insects
   def create
     @insect = Insect.new(insect_params)
+    
     if @insect.save
       render json: @insect, status: :created, location: @insect
     else
