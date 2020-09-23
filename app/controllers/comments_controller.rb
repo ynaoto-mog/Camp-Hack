@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
     before_action :set_insect, only: [:index]
     def index
         comments = @insect.comment
-        render json: comment
+        render json: comments
     end
 
     #　Post /insects/:insect_id/comments　コメント投稿　OK
@@ -25,7 +25,7 @@ class CommentsController < ApplicationController
     
     private
     def set_insect
-        @insect = Insect.find(params[:id])
+        @insect = Insect.find(params[:insect_id])
     end
 
     def set_comment

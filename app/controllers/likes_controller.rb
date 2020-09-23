@@ -13,7 +13,7 @@ class LikesController < ApplicationController
 
     private
     def set_insect
-        @insect = Insect.find(params[:id])
+        @insect = Insect.find(params[:insect_id])
     end
 
 end

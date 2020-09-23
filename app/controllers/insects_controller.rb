@@ -5,8 +5,6 @@ class InsectsController < ApplicationController
   # GET /insects
   def index
     @insects = Insect.all
-    #@insects = @insects.where('name LIKE ?',"%#{params[:name]}%")
-    #@insects = @insects.where('pass LIKE ?',"%#{params[:name]}%")
     render json: @insects
   end
 
@@ -22,6 +20,7 @@ class InsectsController < ApplicationController
   # POST /insects
   def create
     @insect = Insect.new(insect_params)
+    @insect.user_id = params[:user_id]
     now_time = Time.zone.now
     hour = now_time.hour
     if hour >= 3 && hour > 10
@@ -73,6 +72,6 @@ class InsectsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def insect_params
-      params.permit(:name, :description, :latitude, :longitude, :category_id, :date, :prfc, :hour, :pass, :image)
+      params.permit(:name, :description, :latitude, :longitude, :category_id, :date, :prfc, :hour, :pass, :image, :question)
     end
 end
