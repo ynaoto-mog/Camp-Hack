@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 
     end
 
-    require
+    private
     def user_params
         params.permit(:nick_name, :login_id, :password)
     end
