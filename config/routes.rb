@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get "users/:id" => "users#show"
+  get "users/:id/insects" => "users#insects"
   post "users/sign_up" => "users#sign_up"
   post "users/sign_in" => "users#sign_in"
   get "insects/question" => "insects#question"

@@ -6,6 +6,12 @@ class UsersController < ApplicationController
             render json: user
     end
 
+    def insects
+        @insects = Insect.where(user_id: params[:id])
+            render json: @insects
+
+    end
+
     def sign_up
         user = User.new(user_params)
         if user.save
