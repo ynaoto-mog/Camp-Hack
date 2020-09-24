@@ -1,5 +1,5 @@
 class InsectsController < ApplicationController
-  before_action :set_insect, only: [:show, :update, :destroy,:destroy_question]
+  before_action :set_insect, only: [:show, :update, :destroy]
 
   
   # GET /insects
@@ -79,6 +79,7 @@ class InsectsController < ApplicationController
   end
 
   def destroy_question
+    @insect = Insect.find(params[:insect_id])
     @insect.question = false
     if @insect.update
       render json: @insect
