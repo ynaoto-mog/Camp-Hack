@@ -30,13 +30,14 @@ class InsectsController < ApplicationController
   def create
     @insect = Insect.new(insect_params)
     @insect.user_id = params[:user_id]
-    now_time = Time.zone.now
-    hour = now_time.hour + 9
-    if hour >= 3 && hour > 10
+    now_time = Time.zone.now 
+    hour = now_time.hour 
+    puts hour
+    if hour >= 3 && hour < 10
       @insect.hour ="早朝"
-    elsif hour >= 10 && hour > 17
+    elsif hour >= 10 && hour < 17
       @insect.hour ="午前"
-    elsif hour >= 17 && hour > 20
+    elsif hour >= 17 && hour < 20
       @insect.hour ="午後"
     else
       @insect.hour ="夜"
