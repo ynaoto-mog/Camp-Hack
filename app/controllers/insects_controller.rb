@@ -31,7 +31,7 @@ class InsectsController < ApplicationController
     @insect = Insect.new(insect_params)
     @insect.user_id = params[:user_id]
     now_time = Time.zone.now
-    hour = now_time.hour
+    hour = now_time.hour + 9
     if hour >= 3 && hour > 10
       @insect.hour ="早朝"
     elsif hour >= 10 && hour > 17
