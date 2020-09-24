@@ -11,11 +11,11 @@ class InsectsController < ApplicationController
       @insects = Insect.where("name LIKE ? ",'%' + params[:search] + '%')
     elsif params[:sort].present? && params[:search].blank?
       puts "2"
-      @insect = Insect.where(hour: params[:sort])
+      @insects = Insect.where(hour: params[:sort])
     elsif params[:search].present? && params[:sort].present?
       puts "3"
       @insects = Insect.where("name LIKE ? ",'%' + params[:search] + '%')
-      @insect = @insect.where(hour: params[:sort])
+      @insects = @insects.where(hour: params[:sort])
     else
       puts "4"
       @insects = Insect.all
