@@ -1,5 +1,11 @@
 class UsersController < ApplicationController
     before_action :set_users, only: [:sign_in]
+
+    def show
+        user = User.find(params[:id])
+            render json: user
+    end
+
     def sign_up
         user = User.new(user_params)
         if user.save

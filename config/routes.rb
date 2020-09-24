@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "users/:id" => "users#show"
   post "users/sign_up" => "users#sign_up"
   post "users/sign_in" => "users#sign_in"
   resources :insects do
