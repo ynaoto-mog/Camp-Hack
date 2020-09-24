@@ -1,10 +1,19 @@
 class InsectsController < ApplicationController
-  before_action :set_insect, only: [:show, :update, :destroy]
+  before_action :set_insect, only: [:show, :update, :destroy,:destroy_question]
 
   
   # GET /insects
   def index
-    @insects = Insect.all
+    if params[:search].present? && params[:sort].blank?
+      @insects = Insect.where("name LIKE ? ",'%' + params[:search] + '%')
+    elsif params[:sort].present? && params[:search].blank?
+      @insect = Insect.where(hour:params[:sort])
+    elsif params[:search].present? && params[:sort].present?
+      @insects = Insect.where("name LIKE ? ",'%' + params[:search] + '%')
+      @insect = @insect.where(hour:params[:sort])
+    else
+      @insects = Insect.all
+    end
     render json: @insects
   end
 
@@ -62,6 +71,20 @@ class InsectsController < ApplicationController
       Comment.where(insect_id: params[:id]).destroy_all
     end
     @insect.destroy
+  end
+
+  def question
+    @insect = Insect.where(question: true)
+    render json: @insect
+  end
+
+  def destroy_question
+    @insect.question = false
+    if @insect.update(insect_params)
+      render json: @insect
+    else
+      render json: @insect.errors, status: :unprocessable_entity
+    end
   end
 
   private
