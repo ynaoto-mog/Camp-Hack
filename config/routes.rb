@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   post "users/sign_up" => "users#sign_up"
   post "users/sign_in" => "users#sign_in"
   get "insects/question" => "insects#question"
+  patch "insects/destroy_question/:id" => "insect#destroy_question"
   resources :insects do
     resources :likes, only: [:index, :create]
     resources :comments, only: [:index, :create, :destroy]

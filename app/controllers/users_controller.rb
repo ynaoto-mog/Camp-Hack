@@ -9,7 +9,6 @@ class UsersController < ApplicationController
     def insects
         @insects = Insect.where(user_id: params[:id])
             render json: @insects
-
     end
 
     def sign_up
