@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
 
     #　Post /insects/:insect_id/comments　コメント投稿　OK
     def create
-        @comment = Comment.create(comment_params)
+        @comment = Comment.new(comment_params)
         @comment.insect_id = params[:insect_id]
         
         if @comment.save
