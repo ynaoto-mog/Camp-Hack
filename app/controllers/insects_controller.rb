@@ -80,7 +80,7 @@ class InsectsController < ApplicationController
 
   def destroy_question
     @insect.question = false
-    if @insect.update(insect_params)
+    if @insect.update
       render json: @insect
     else
       render json: @insect.errors, status: :unprocessable_entity
