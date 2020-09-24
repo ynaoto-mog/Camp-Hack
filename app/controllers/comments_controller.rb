@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
     def create
         @comment = Comment.new(comment_params)
         @comment.insect_id = params[:insect_id]
-        
+        @comment.user_id = params[:user_id]
         if @comment.save
             render json: @comment, status: :created
         else
