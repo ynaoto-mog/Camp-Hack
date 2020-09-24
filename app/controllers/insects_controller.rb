@@ -74,8 +74,8 @@ class InsectsController < ApplicationController
   end
 
   def question
-    @insect = Insect.where(question: true)
-    render json: @insect
+    @questions = Insect.where(question: true)
+    render json: @questions
   end
 
   def destroy_question
