@@ -4,6 +4,7 @@ class InsectsController < ApplicationController
   
   # GET /insects
   def index
+    put params[:sort]
     if params[:search].present? && params[:sort].blank?
       @insects = Insect.where("name LIKE ? ",'%' + params[:search] + '%')
     elsif params[:sort].present? && params[:search].blank?
