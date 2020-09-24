@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get "users/:id" => "users#show"
   post "users/sign_up" => "users#sign_up"
   post "users/sign_in" => "users#sign_in"
+  get "insects/question" => "insects#question"
   resources :insects do
     resources :likes, only: [:index, :create]
     resources :comments, only: [:index, :create, :destroy]
