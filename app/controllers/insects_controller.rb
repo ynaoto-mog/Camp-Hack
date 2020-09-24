@@ -9,10 +9,10 @@ class InsectsController < ApplicationController
     if params[:search].present? && params[:sort].blank?
       @insects = Insect.where("name LIKE ? ",'%' + params[:search] + '%')
     elsif params[:sort].present? && params[:search].blank?
-      @insect = Insect.where(hour:params[:sort])
+      @insect = Insect.where(hour: params[:sort])
     elsif params[:search].present? && params[:sort].present?
       @insects = Insect.where("name LIKE ? ",'%' + params[:search] + '%')
-      @insect = @insect.where(hour:params[:sort])
+      @insect = @insect.where(hour: params[:sort])
     else
       @insects = Insect.all
     end
